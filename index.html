@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pocket Tank</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+    
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCZYJm5Nj96c9Rauwu7v0R48gcnan5uLlM",
+    authDomain: "pocket-tank.firebaseapp.com",
+    databaseURL: "https://pocket-tank.firebaseio.com",
+    projectId: "pocket-tank",
+    storageBucket: "pocket-tank.appspot.com",
+    messagingSenderId: "623072678023"
+  };
+  firebase.initializeApp(config);
+</script>
+   <script src="js/script.js"></script>
+    
+</head>
+<body>
+
+    <audio src="audio/theme.mp3" type="audio/mp3" autoplay loop ></audio>
+   
+   <div id="main-div">
+       <h1 >Pocket Tank</h1>
+       <h2>Login</h2>
+       <input type="email"  placeholder="Email" id="emailTextView" onkeypress="enter2(event)" > <br>
+        <input type="password" placeholder="Password" id="passwordTextView" onkeypress="enter2(event)">
+        <button type="button"  onclick="login()" >Login</button> 
+        <button type="button" onclick="signUp()">SignUp</button>   
+        
+   </div>
+
+  
+</body>
+</html>

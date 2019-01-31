@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pocket Tank</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/home.css">
+
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCZYJm5Nj96c9Rauwu7v0R48gcnan5uLlM",
+            authDomain: "pocket-tank.firebaseapp.com",
+            databaseURL: "https://pocket-tank.firebaseio.com",
+            projectId: "pocket-tank",
+            storageBucket: "pocket-tank.appspot.com",
+            messagingSenderId: "623072678023"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="js/script.js"></script>
+
+</head>
+
+<body onload="init()" >
+    <audio loop="true">
+        <source src="theme.mp3" type="audio/mpeg" />
+    </audio>
+
+
+    <button id="signOutButton" type="button" onclick="signOut()">Sign out</button>
+    <button id="chatButton" type="button" onclick="chat()">Chat</button>
+
+    <div id="hello" class="chatBox" style="display:none">
+        <div class="chatLog" id="chatLog">
+
+
+
+
+        </div>
+        <div class="chatForm">
+            <textarea id="textMsg" onkeypress="enter(event)"> </textarea>
+            <button id="" type="button" onclick="send()">Send</button>
+        </div>
+
+        <div id="audio">
+
+            <audio id="bi" src="audio/bi.mp3"></audio>
+            <audio id="cb" src="audio/cb.mp3"></audio>
+            <audio id="cm" src="audio/cm.mp3"></audio>
+            <audio id="gg" src="audio/gg.mp3"></audio>
+            <audio id="gs" src="audio/gs.mp3"></audio>
+            <audio id="lg" src="audio/lg.mp3"></audio>
+            <audio id="nn" src="audio/nn.mp3"></audio>
+            <audio id="wp" src="audio/wp.mp3"></audio>
+
+        </div>
+
+    </div>
+
+
+    <div id="game" class="game">
+        <button id="single" onclick="singlePlay()">Single Player</button>
+        <button id="multi" onclick="multiPlay()">Multiplayer</button>
+        <button id="host" onclick="host()">Host</button>
+        <button id="join" onclick="join()">Join</button>
+    </div>
+
+
+
+    <canvas id="canvas" class="canvas" style="display: none">
+    </canvas>
+
+    <div id="startGame" style="display: none">
+
+
+    <div id="move">
+        <p id="moveText">Move</p>
+        <button id="leftMove" onclick="moveLeft()"></button>
+        <input type="text" id="moveNumber" value="4" disabled="true">
+        <button id="rightMove" onclick="moveRight()"></button>
+    </div>
+
+    <button id="fire" onclick="turnByFire()">Fire</button>
+
+    <div id="powerSet">
+
+        <p id="pText">Power</p>
+        <button id="powerUp" onclick="powerUp()"></button>
+        <input type="ptext" id="powerText" value="70">
+        <button id="powerDown" onclick="powerDown()"></button>
+
+
+    </div>
+
+
+    <form id="weapon">
+        <select id="mySelect" size="1" item-width="20px" item-height="20px">
+            <option value="01">Single Shot</option>
+            <option value="02">5-shot</option>
+            <option value="03">Misile</option>
+            <option value="04">Hammer</option>
+        </select>
+        <p id="wText">Weapons</p>
+    </form>
+
+    <div id="angleSet">
+
+        <p id="aText">Angle</p>
+        <button id="decAngle" onclick="decAngle()"></button>
+        <input type="text" id="angleText" value="45">
+
+        <button id="incAngle" onclick="incAngle()"></button>
+    </div>
+
+    <div id="hostID">
+        <p>Player 1:</p>
+        <p id="player1ID">Kulvendra Singh</p>
+        <p>Score: </p><p id="hostScore"></p>    
+    </div>
+
+    <div id="joinID">
+            <p>Player 2:</p>
+            <p id="player2ID">Ayugh Singh</p>
+            <p>Score: </p><p id="joinScore"></p>    
+        </div>
+
+        </div>
+
+
+        <div><p id="fireCheck"></p></div>
+
+    
+        
+
+        
+   
+
+
+
+</body>
+
+</html>
